@@ -230,10 +230,16 @@
   <script src="https://cdn.jsdelivr.net/gh/learyjk/baddognft/ABI.js"></script>
 
   <script>
-    const CONTRACT_ADDRESS = "0xb686042097bE260337315A41235C0Af2FdcC0606"; //address for your smart contract
-    const WEI_COST = 500000000000000;
+    const CONTRACT_ADDRESS = "0x548275011FcBf95928A9d91f2374fF4456A31C2e"; //address for your smart contract
+    const WEI_COST = 000000000000000;
     const CHAIN_ID = '0x1'; //'0x89' for polygon an '0x1' for Ethereum
     const CHAIN_ID_NAME = 'Ethereum'; //enter name of blockchain used
+
+    //Bytes32, Bytes32[], Uint256, Address, Bytes
+    const a = "0x0000000000000000000000000000000000000000000000000000000000000000";
+    const b = "[]";
+    const c = "0x0000000000000000000000000000000000000000";
+    const d = "0x";
 
     //const ABI = $.get('https://raw.githubusercontent.com/learyjk/baddognft/main/ABI.js');
     console.log(ABI);
@@ -272,7 +278,8 @@
       console.log(totalCost);
       // if an account is present
       if (accounts.length > 0) {
-        contract.methods.mint(amount).send({
+        
+        contract.methods.mint(a,b,amount,c,d).send({
           from: accounts[0],
           to: CONTRACT_ADDRESS,
           value: String(totalCost),
